@@ -9,7 +9,7 @@ services:
     name: smart-queue
     runtime: node
     plan: free
-    buildCommand: npm install && npx prisma db push && npm run build
+    buildCommand: npm install --include=dev && npx prisma db push && npm run build
     startCommand: npm run start
     envVars:
       - key: NODE_VERSION
