@@ -1,0 +1,190 @@
+.page {
+  min-height: 100svh;
+  padding: 28px 36px 40px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.brand p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.clock {
+  text-align: right;
+  font-family: var(--font-display);
+}
+
+.clockTime {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.clockDate {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.soundBtn {
+  position: fixed;
+  top: 24px;
+  right: 36px;
+  z-index: 60;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.servingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.servingCard {
+  padding: 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.servingCard.calling {
+  border-color: hsla(193, 95%, 58%, 0.5);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.counterLabel {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.servingNumber {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  margin: 8px 0;
+}
+
+.servingCard.calling .servingNumber {
+  color: var(--cyan);
+  text-shadow: 0 0 40px hsla(193, 95%, 58%, 0.6);
+}
+
+.servingIdle {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--text-dim);
+  margin: 8px 0;
+}
+
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.upcomingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: hsla(220, 30%, 60%, 0.05);
+  border: 1px solid var(--glass-border);
+  animation: float-up 0.4s ease both;
+}
+
+.upcomingNumber {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.upcomingService {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+}
+
+/* Calling overlay modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, hsla(193, 80%, 30%, 0.4), hsla(224, 40%, 3%, 0.94));
+  animation: fade-in 0.4s ease both;
+}
+
+.overlayCard {
+  text-align: center;
+  padding: 64px 80px;
+  animation: scale-in 0.5s ease both;
+}
+
+.overlayLabel {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.overlayNumber {
+  font-size: clamp(4rem, 14vw, 8rem);
+  color: var(--cyan);
+  text-shadow: 0 0 60px hsla(193, 95%, 58%, 0.7);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.overlayCounter {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--text);
+}

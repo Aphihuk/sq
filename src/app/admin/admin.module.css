@@ -1,0 +1,249 @@
+/* Shared styles for admin tab content */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.statCard {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.statIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statValue {
+  font-size: 1.7rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.chartGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .chartGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  padding: 24px;
+}
+
+.chartCard h3 {
+  font-size: 1rem;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.chartBox {
+  position: relative;
+  height: 280px;
+}
+
+/* Lists (categories / counters) */
+.listCard {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: hsla(220, 30%, 60%, 0.05);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.rowPrefix {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  flex-shrink: 0;
+}
+
+.rowInfo {
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rowInfo span:first-child {
+  font-weight: 700;
+}
+
+.rowMeta {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 8px;
+}
+
+.formRow .field {
+  flex: 1;
+  min-width: 140px;
+}
+
+.miniInput {
+  width: 100px !important;
+}
+
+/* QR Config */
+.qrLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}
+
+@media (max-width: 860px) {
+  .qrLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.qrCard {
+  padding: 28px;
+}
+
+.modeToggle {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: hsla(220, 30%, 60%, 0.05);
+  text-align: left;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.modeBtn.active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.modeBtn h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.modeBtn p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.urlBox {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: hsla(220, 30%, 5%, 0.5);
+  border: 1px solid var(--glass-border);
+  font-family: monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+.qrPreview {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.qrImage {
+  width: 220px;
+  height: 220px;
+  border-radius: var(--radius-md);
+  background: white;
+  padding: 12px;
+}
+
+.editable {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  font-weight: 700;
+  width: 100%;
+  transition: border-color var(--transition);
+}
+
+.editable:focus {
+  outline: none;
+  border-color: var(--glass-border-strong);
+  background: hsla(220, 30%, 5%, 0.4);
+}
+
+.editablePrefix {
+  composes: editable;
+  text-align: center;
+  font-family: var(--font-display);
+}

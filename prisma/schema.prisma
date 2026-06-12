@@ -1,0 +1,53 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ServiceType {
+  id        String   @id @default(uuid())
+  name      String
+  prefix    String   @unique
+  priority  Int      @default(1)
+  queues    Queue[]
+  createdAt DateTime @default(now())
+}
+
+model Counter {
+  id     String  @id
+  name   String
+  status String  @default("ACTIVE")
+  queues Queue[]
+}
+
+model Queue {
+  id            String      @id @default(uuid())
+  queueNumber   String
+  customerName  String
+  customerPhone String
+  serviceTypeId String
+  serviceType   ServiceType @relation(fields: [serviceTypeId], references: [id])
+  status        String      @default("WAITING")
+  counterId     String?
+  counter       Counter?    @relation(fields: [counterId], references: [id])
+  createdAt     DateTime    @default(now())
+  calledAt      DateTime?
+  completedAt   DateTime?
+}
+
+model SystemSettings {
+  id         String  @id @default("config")
+  qrType     String  @default("STATIC")
+  dailyToken String  @default("static-secret-key")
+  tokenDate  String?
+}
+
+model User {
+  id       String @id @default(uuid())
+  username String @unique
+  password String
+  role     String
+}
